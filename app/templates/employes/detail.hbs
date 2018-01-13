@@ -1,0 +1,83 @@
+<h2>Détail du {{model.modelName}} {{model.matricule}}</h2>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label class="form-control-label" for="nom">Nom</label>
+      {{input type="text" value=model.nom classNames="form-control" id="nom"}}
+
+      <label class="form-control-label" for="nom">Prénom</label>
+      {{input type="text" value=model.prenom class="form-control" id="prenom"}}
+
+      <label class="form-control-label" for="nom">Matricule</label>
+      {{input type="text" value=model.matricule class="form-control" id="matricule"}}
+
+      {{#if (eq model.modelName "commercial")}}
+        <label class="form-control-label" for="performance">Performance</label>
+        {{input type="text" value=model.performance class="form-control" id="performance"}}
+
+        <label class="form-control-label" for="caAnnuel">CA Annuel</label>
+        <div class="input-group">
+          {{input type="text" value=model.caAnnuel class="form-control" id="caAnnuel"}}
+          <span class="input-group-addon">€</span>
+        </div>
+      {{/if}}
+
+      {{#if (eq model.modelName "technicien")}}
+        <label class="form-control-label" for="grade">Grade</label>
+        {{input type="text" value=model.grade class="form-control" id="grade"}}
+
+        <label class="form-control-label" for="manager">Manager : {{#link-to "employes.detail"}}{{model.manager.prenom}} {{model.manager.nom}}, {{model.manager.matricule}} {{/link-to}}</label>
+        <div class="input-group">
+          Manager
+        </div>
+      {{/if}}
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="form-group">
+      <label class="form-control-label" for="nom">Salaire</label>
+      <div class="input-group">
+        {{input type="text" value=model.salaire class="form-control" id="salaire"}}
+        <span class="input-group-addon">€</span>
+      </div>
+
+      {{#if (not model.isNew)}}
+
+      <label class="form-control-label" for="nom">Prime Annuelle</label>
+      <div class="input-group">
+        {{input type="text" value=model.primeAnnuelle class="form-control" id="primeAnnuelle"}}
+        <span class="input-group-addon">€</span>
+      </div>
+
+      {{/if}}
+
+      <label class="form-control-label" for="nom">Date d'embauche</label>
+      {{input type="text" value=model.dateEmbaucheFormatee class="form-control" id="dateEmbauche"}}
+
+      {{#if (not model.isNew)}}
+      <label class="form-control-label" for="nom">Nombre de congés</label>
+      {{input type="text" value=model.nbConges class="form-control" id="nbConges"}}
+
+      <label class="form-control-label" for="nom">Nombre d'années d'ancienneté</label>
+      {{input type="text" value=model.nombreAnneeAnciennete class="form-control" id="nombreAnneeAnciennete"}}
+      {{/if}}
+
+      {{#if (eq model.modelName "technicien")}}
+
+      {{/if}}
+
+      {{#if (eq model.modelName "manager")}}
+
+      {{/if}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <button disabled="{{if model.hasDirtyAttributes "" "disabled"}}" class="btn btn-primary" {{action "save"}}>Enregistrer</button>
+  {{#if model.isNew}}
+  {{else}}
+    <button class="btn btn-danger" {{action "delete"}}>Supprimer</button>
+  {{/if}}
+</div>
+
