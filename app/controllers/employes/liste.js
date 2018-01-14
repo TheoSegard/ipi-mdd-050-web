@@ -6,4 +6,9 @@ export default Controller.extend({
   size:10,
   sortDirection:"ASC",
   sortProperty:"matricule",
+  actions:{
+    sortBy(sortProperty){
+      this.transitionToRoute("employes.liste", {queryParams:{page: this.get("page"), size: this.get("size"), sortProperty:sortProperty, sortDirection: this.get("sortDirection") === "ASC" ? "DESC" : "ASC"}});
+    }
+  }
 });

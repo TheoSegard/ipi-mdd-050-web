@@ -6,8 +6,12 @@ export default Controller.extend({
     rechercher(){
       this.store.queryRecord("employe", {matricule:this.get("matricule")}).then((employe) => {
         this.transitionToRoute(employe.get("urlDetail"), employe.get("id"));
-      }).catch((reason) => {
-        this.toast.error(reason);
+      }).catch((error) => {
+        if(error.errors){
+          error.errors.forEach((er) => {
+            this.toast.error("Erreur " + er.status + ", " + er.detail);
+          })
+        }
       });
     }
   }

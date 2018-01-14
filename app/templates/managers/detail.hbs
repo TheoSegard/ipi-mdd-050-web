@@ -13,10 +13,30 @@
       {{input type="text" value=model.matricule class="form-control" id="matricule"}}
 
       <label class="form-control-label" for="performance">Equipe</label>
-      <div class="list-group">
-        {{#each model.equipe as |tech|}}
-          {{#link-to "techniciens.detail" tech.id classNames="list-group-item list-group-item-action"}}{{tech.prenom}} {{tech.nom}} <span class="badge pull-right">{{tech.matricule}}</span>{{/link-to}}
-        {{/each}}
+      <div class="row">
+        <div class="col-lg-10">
+          <div class="list-group">
+            {{#each model.equipe as |tech|}}
+              {{#link-to "techniciens.detail" tech.id classNames="list-group-item list-group-item-action"}}&nbsp;{{tech.prenom}} {{tech.nom}} <span class="badge pull-left">{{tech.matricule}}</span>{{/link-to}}
+            {{/each}}
+          </div>
+        </div>
+        <div class="col-lg-2 text-center">
+          <div class="list-group text-center">
+            {{#each model.equipe as |tech|}}
+              <button {{action "deleteTechniciens" tech.id}} class="btn-danger list-group-item list-group-item-action"><span class="glyphicon glyphicon-remove"></span></button>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10">
+          {{input type="text" value=matriculeToAdd placeholder="Ajouter un technicien avec le matricule..." class="form-control"}}
+        </div>
+        <div class="col-lg-2 text-center">
+          <button {{action "addTechniciens" matriculeToAdd}} class="btn-success list-group-item list-group-item-action"><span class="glyphicon glyphicon-plus"></span></button>
+
+        </div>
       </div>
 
     </div>

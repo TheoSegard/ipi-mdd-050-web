@@ -15,9 +15,30 @@
     <table class="table table-hover table-striped">
       <thead>
       <tr>
-        <th scope="col">Matricule</th>
-        <th scope="col">Nom</th>
-        <th scope="col">Prénom</th>
+        <th scope="col" {{action "sortBy" "matricule"}}>Matricule
+          {{#if (eq sortProperty "matricule")}}
+            {{#if (eq sortDirection "DESC")}}
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            {{/if}}
+          {{/if}}</th>
+        <th scope="col" {{action "sortBy" "nom"}}>Nom
+          {{#if (eq sortProperty "nom")}}
+            {{#if (eq sortDirection "DESC")}}
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            {{/if}}
+          {{/if}}</th>
+        <th scope="col" {{action "sortBy" "prenom"}}>Prénom
+          {{#if (eq sortProperty "prenom")}}
+            {{#if (eq sortDirection "DESC")}}
+              <span class="glyphicon glyphicon-chevron-down"></span>
+            {{else}}
+              <span class="glyphicon glyphicon-chevron-up"></span>
+            {{/if}}
+          {{/if}}</th>
         <th scope="col"></th>
       </tr>
       </thead>

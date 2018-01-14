@@ -6,8 +6,12 @@ export default Controller.extend({
       this.get("model").save().then(() => {
         this.toast.success('Insertion effectuée !');
         this.transitionToRoute(this.get("model.urlDetail"), this.get("model.id"));
-      }).catch((reason) => {
-        this.toast.error("Erreur lors de la sauvegarde ! " + reason);
+      }).catch((error) => {
+        if(error.errors){
+          error.errors.forEach((er) => {
+            this.toast.error("Erreur " + er.status + " lors de la sauvegarde, " + er.detail);
+          })
+        }
       });
     }
   }

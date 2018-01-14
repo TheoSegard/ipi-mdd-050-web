@@ -14,18 +14,18 @@
 
       {{#if (eq model.modelName "commercial")}}
         <label class="form-control-label" for="performance">Performance</label>
-        {{input type="text" value=model.performance class="form-control" id="performance"}}
+        {{input type="number" value=model.performance class="form-control" id="performance"}}
 
         <label class="form-control-label" for="caAnnuel">CA Annuel</label>
         <div class="input-group">
-          {{input type="text" value=model.caAnnuel class="form-control" id="caAnnuel"}}
+          {{input type="number" value=model.caAnnuel class="form-control" id="caAnnuel"}}
           <span class="input-group-addon">€</span>
         </div>
       {{/if}}
 
       {{#if (eq model.modelName "technicien")}}
         <label class="form-control-label" for="grade">Grade</label>
-        {{input type="text" value=model.grade class="form-control" id="grade"}}
+        {{input type="number" value=model.grade class="form-control" id="grade"}}
 
         <label class="form-control-label" for="manager">Manager : {{#link-to "employes.detail"}}{{model.manager.prenom}} {{model.manager.nom}}, {{model.manager.matricule}} {{/link-to}}</label>
         <div class="input-group">
@@ -38,7 +38,7 @@
     <div class="form-group">
       <label class="form-control-label" for="nom">Salaire</label>
       <div class="input-group">
-        {{input type="text" value=model.salaire class="form-control" id="salaire"}}
+        {{input type="number" value=model.salaire class="form-control" id="salaire"}}
         <span class="input-group-addon">€</span>
       </div>
 

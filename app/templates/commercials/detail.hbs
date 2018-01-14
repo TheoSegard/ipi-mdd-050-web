@@ -10,14 +10,14 @@
       {{input type="text" value=model.prenom class="form-control" id="prenom"}}
 
       <label class="form-control-label" for="matricule">Matricule</label>
-      {{input type="text" value=model.matricule class="form-control" id="matricule"}}
+      {{input type="text" readonly=true value=model.matricule class="form-control" id="matricule"}}
 
       <label class="form-control-label" for="performance">Performance</label>
-      {{input type="text" value=model.performance class="form-control" id="performance"}}
+      {{input type="number" value=model.performance class="form-control" id="performance"}}
 
       <label class="form-control-label" for="caAnnuel">CA Annuel</label>
       <div class="input-group">
-        {{input type="text" value=model.caAnnuel class="form-control" id="caAnnuel"}}
+        {{input type="number" value=model.caAnnuel class="form-control" id="caAnnuel"}}
         <span class="input-group-addon">€</span>
       </div>
     </div>
@@ -26,12 +26,12 @@
     <div class="form-group">
       <label class="form-control-label" for="nom">Salaire</label>
       <div class="input-group">
-        {{input type="text" value=model.salaire class="form-control" id="salaire"}}
+        {{input type="number" value=model.salaire class="form-control" id="salaire"}}
         <span class="input-group-addon">€</span>
       </div>
       <label class="form-control-label" for="primeAnnuelle">Prime Annuelle</label>
       <div class="input-group">
-        {{input type="text" value=model.primeAnnuelle class="form-control" id="primeAnnuelle"}}
+        {{input type="number" value=model.primeAnnuelle class="form-control" id="primeAnnuelle"}}
         <span class="input-group-addon">€</span>
       </div>
 
@@ -39,10 +39,10 @@
       {{input type="text" value=model.dateEmbaucheFormatee class="form-control" id="dateEmbauche"}}
 
       <label class="form-control-label" for="nbConges">Nombre de congés</label>
-      {{input type="text" value=model.nbConges class="form-control" id="nbConges"}}
+      {{input type="number" readonly=true value=model.nbConges class="form-control" id="nbConges"}}
 
       <label class="form-control-label" for="nombreAnneeAnciennete">Nombre d'années d'ancienneté</label>
-      {{input type="text" value=model.nombreAnneeAnciennete class="form-control" id="nombreAnneeAnciennete"}}
+      {{input type="number" readonly=true value=model.nombreAnneeAnciennete class="form-control" id="nombreAnneeAnciennete"}}
     </div>
   </div>
 </div>

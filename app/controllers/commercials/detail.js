@@ -5,8 +5,12 @@ export default Controller.extend({
     save(){
       this.get("model").save().then(() => {
         this.toast.success('Modification effectuée !');
-      }).catch((reason) => {
-        this.toast.error("Erreur lors de la sauvegarde ! " + reason);
+      }).catch((error) => {
+        if(error.errors){
+          error.errors.forEach((er) => {
+            this.toast.error("Erreur " + er.status + " lors de la sauvegarde, " + er.detail);
+          })
+        }
       });
     },
     delete(){
@@ -15,7 +19,11 @@ export default Controller.extend({
         this.toast.success('Suppression effectuée !');
         this.transitionToRoute("employes.liste");
       }).catch((reason) => {
-        this.toast.error("Erreur lors de la suppression ! " + reason);
+        if(error.errors){
+          error.errors.forEach((er) => {
+            this.toast.error("Erreur " + er.status + " lors de la suppression, " + er.detail);
+          })
+        }
       });
     }
   }

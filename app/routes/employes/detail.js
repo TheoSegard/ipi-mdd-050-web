@@ -24,7 +24,16 @@ export default Route.extend({
         ]
       });
     } else {
-      return this.store.find('employe', params.employeId);
+      return this.store.find('employe', params.employeId).catch();
+    }
+  },
+  actions: {
+    error(error, transition) {
+      if(error.errors){
+        error.errors.forEach((er) => {
+          this.toast.error("Erreur " + er.status + ", " + er.detail);
+        })
+      }
     }
   }
 });

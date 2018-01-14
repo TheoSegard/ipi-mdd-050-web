@@ -15,10 +15,37 @@
       <label class="form-control-label" for="grade">Grade</label>
       {{input type="text" value=model.grade class="form-control" id="grade"}}
 
-      <label class="form-control-label" for="manager">Manager</label>
-      <div class="list-group">
-          {{#link-to "managers.detail" model.manager.id classNames="list-group-item list-group-item-action"}}{{model.manager.prenom}} {{model.manager.nom}} <span class="badge pull-right">{{model.manager.matricule}}</span>{{/link-to}}
+      {{#if model.manager}}
+
+      <div class="row">
+        <div class="col-lg-10">
+          <label class="form-control-label" for="manager">Manager</label>
+          <div class="list-group">
+              {{#link-to "managers.detail" model.manager.id classNames="list-group-item list-group-item-action"}}{{model.manager.prenom}} {{model.manager.nom}} <span class="badge pull-right">{{model.manager.matricule}}</span>{{/link-to}}
+          </div>
+        </div>
+        <div class="col-lg-2 text-center">
+          <div class="list-group text-center">
+            <label class="form-control-label" for="manager">&nbsp;</label>
+              <button {{action "deleteManager"}} class="btn-danger list-group-item list-group-item-action"><span class="glyphicon glyphicon-remove"></span></button>
+          </div>
+        </div>
       </div>
+      {{/if}}
+
+      {{#unless model.manager}}
+        <div class="row">
+          <div class="col-lg-10">
+            <label class="form-control-label" for="manager">Manager</label>
+            {{input type="text" value=matriculeToAdd placeholder="Affecter un manager avec le matricule..." class="form-control"}}
+          </div>
+          <div class="col-lg-2 text-center">
+            <label class="form-control-label" for="manager">&nbsp;</label>
+            <button {{action "addManager" matriculeToAdd}} class="btn-success list-group-item list-group-item-action"><span class="glyphicon glyphicon-plus"></span></button>
+
+          </div>
+        </div>
+      {{/unless}}
     </div>
   </div>
   <div class="col-lg-6">
