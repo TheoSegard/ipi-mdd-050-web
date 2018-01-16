@@ -21,7 +21,7 @@ export default Controller.extend({
       });
     },
     deleteTechniciens(id){
-      this.get('ajax').request("http://localhost:8080/managers/" + this.get("model.id") + "/equipe/" + id + "/remove").then(() => {
+      this.get('ajax').request("http://localhost:5367/managers/" + this.get("model.id") + "/equipe/" + id + "/remove").then(() => {
         let tech = this.store.peekRecord('technicien', id);
         this.get("model.equipe").removeObject(tech);
         this.toast.success("Suppression du technicien de l'équipe effectuée !");
@@ -32,7 +32,7 @@ export default Controller.extend({
       });
     },
     addTechniciens(matricule){
-      this.get('ajax').request("http://localhost:8080/managers/" + this.get("model.id") + "/equipe/" + matricule + "/add").then((technicien) => {
+      this.get('ajax').request("http://localhost:5367/managers/" + this.get("model.id") + "/equipe/" + matricule + "/add").then((technicien) => {
         this.toast.success("Ajout du technicien dans l'équipe effectuée !");
         this.store.findRecord('technicien', technicien.id).then((tech) => {
           this.get("model.equipe").pushObject(tech);

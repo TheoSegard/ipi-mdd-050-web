@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.RESTAdapter.extend({
-  host:"http://localhost:8080",
+  host:"http://localhost:5367",
   handleResponse(status, headers, payload) {
     if (status !== 200 && payload && payload.error){
       return payload;

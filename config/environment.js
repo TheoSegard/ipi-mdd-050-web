@@ -8,7 +8,7 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     contentSecurityPolicy : {
-      'connect-src': "'self' localhost:8080"
+      'connect-src': "'self' localhost:5367"
     },
     EmberENV: {
       FEATURES: {

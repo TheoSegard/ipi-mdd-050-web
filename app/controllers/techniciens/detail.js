@@ -32,7 +32,7 @@ export default Controller.extend({
       });
     },
     addManager(matricule){
-      this.get('ajax').request("http://localhost:8080/techniciens/" + this.get("model.id") + "/manager/" + matricule + "/add").then((manager) => {
+      this.get('ajax').request("http://localhost:5367/techniciens/" + this.get("model.id") + "/manager/" + matricule + "/add").then((manager) => {
         this.toast.success("Affectation du manager effectuée !");
         this.store.findRecord('manager', manager.id).then((mana) => {
           this.set("model.manager", mana);
