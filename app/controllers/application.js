@@ -5,7 +5,7 @@ export default Controller.extend({
   actions:{
     rechercher(){
       this.store.queryRecord("employe", {matricule:this.get("matricule")}).then((employe) => {
-        this.transitionToRoute(employe.get("urlDetail"), employe.get("id"));
+        this.transitionToRoute("employes.detail", employe.get("id"));
       }).catch((error) => {
         if(error.errors){
           error.errors.forEach((er) => {

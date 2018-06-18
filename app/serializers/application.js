@@ -62,7 +62,9 @@ export default DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, {
     var json = this._super.apply(this, arguments); // Get default serialization
 
     json.id = parseInt(record.id);  // tack on the id
+    json.type=record.modelName;
 
     return json;
-  }
+  },
+
 });

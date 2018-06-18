@@ -2,7 +2,9 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model(){
-    return Ember.$.ajax("http://localhost:5367/employes/count");
+    return Ember.$.ajax("http://localhost:5367/employes/count").catch((error) => {
+      return "?";
+    });
   },
   actions: {
     error(error, transition) {

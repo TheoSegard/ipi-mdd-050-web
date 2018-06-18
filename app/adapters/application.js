@@ -11,5 +11,8 @@ export default DS.RESTAdapter.extend({
     else {
       return this._super(...arguments);
     }
+  },
+  pathForType(type) {
+      return "employes";
   }
 });

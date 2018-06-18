@@ -48,7 +48,7 @@
           <th scope="row">{{employe.matricule}}</th>
           <td>{{employe.nom}}</td>
           <td>{{employe.prenom}}</td>
-          <td>{{#link-to employe.urlDetail employe.id classNames="btn btn-primary"}}Détail{{/link-to}}</td>
+          <td>{{#link-to "employes.detail" employe.id classNames="btn btn-primary"}}Détail{{/link-to}}</td>
         </tr>
       {{/each}}
       </tbody>

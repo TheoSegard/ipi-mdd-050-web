@@ -13,7 +13,7 @@ export default DS.Model.extend({
   "urlDetail": Ember.computed("modelName", function(){
     return this.get("modelName") + "s.detail";
   }),
-  "modelName": Ember.computed("matricule", function(){
+  /*"modelName": Ember.computed("matricule", function(){
     if(this.get("matricule")){
       switch (this.get("matricule").substr(0,1)){
         case "M":
@@ -25,7 +25,7 @@ export default DS.Model.extend({
       }
     }
     return "";
-  }),
+  }),*/
   dateEmbaucheFormatee:Ember.computed("dateEmbauche", function(){
     if(this.get("dateEmbauche")){
       let jour = "00" + this.get("dateEmbauche")[2];
