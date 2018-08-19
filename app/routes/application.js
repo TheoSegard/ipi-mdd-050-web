@@ -6,14 +6,5 @@ export default Route.extend({
     return Ember.$.ajax(ENV.apiUrl + "/employes/count").catch((error) => {
       return "?";
     });
-  },
-  actions: {
-    error(error, transition) {
-      if(error.errors){
-        error.errors.forEach((er) => {
-          this.toast.error("Erreur " + er.status + ", " + er.detail);
-        })
-      }
-    }
   }
 });

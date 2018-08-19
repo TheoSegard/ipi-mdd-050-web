@@ -29,10 +29,9 @@ export default Route.extend({
   },
   actions: {
     error(error, transition) {
-      if(error.errors){
-        error.errors.forEach((er) => {
-          this.toast.error("Erreur " + er.status + ", " + er.detail);
-        })
+      console.log(transition);
+      if(error.message){
+        this.toast.error("Erreur HTTP '" + error.status + "', " + error.message);
       }
     }
   }

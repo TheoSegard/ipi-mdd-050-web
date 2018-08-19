@@ -8,7 +8,7 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     contentSecurityPolicy : {
-      'connect-src': "'self' localhost:5367"
+      'connect-src': "'self' localhost:5367 mdd050api-qlf.eu-west-2.elasticbeanstalk.com http://mdd050api-qlf.eu-west-2.elasticbeanstalk.com"
     },
     EmberENV: {
       FEATURES: {
@@ -20,7 +20,7 @@ module.exports = function(environment) {
         Date: false
       }
     },
-    apiUrl: process.env.API_URL,
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -36,6 +36,11 @@ module.exports = function(environment) {
       ENV.baseURL= null;
       ENV.rootURL= null;
       ENV.locationType= 'hash';
+      ENV.apiUrl= process.env.API_URL;
+  }
+
+  if(environment === 'staging') {
+    ENV.apiUrl= process.env.STAGING_API_URL;
   }
 
   if (environment === 'test') {
