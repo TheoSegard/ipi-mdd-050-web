@@ -1,7 +1,8 @@
 import DS from 'ember-data';
+import ENV from "ipi-mdd-050-web/config/environment";
 
 export default DS.RESTAdapter.extend({
-  host:"http://localhost:5367",
+  host:ENV.apiUrl,
   handleResponse(status, headers, payload) {
     if (status !== 200 && payload && payload.error){
       return payload;

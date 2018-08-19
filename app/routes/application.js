@@ -1,8 +1,9 @@
 import Route from '@ember/routing/route';
+import ENV from "ipi-mdd-050-web/config/environment";
 
 export default Route.extend({
   model(){
-    return Ember.$.ajax("http://localhost:5367/employes/count").catch((error) => {
+    return Ember.$.ajax(ENV.apiUrl + "/employes/count").catch((error) => {
       return "?";
     });
   },
