@@ -8,7 +8,7 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     contentSecurityPolicy : {
-      'connect-src': "'self' localhost:5367 mdd050api-qlf.eu-west-2.elasticbeanstalk.com http://mdd050api-qlf.eu-west-2.elasticbeanstalk.com"
+      'connect-src': "'self' localhost:5367 *.eu-west-2.elasticbeanstalk.com"
     },
     EmberENV: {
       FEATURES: {
