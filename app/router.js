@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('edit');
     this.route('liste');
   });
+  this.route('login');
 });
 
 export default Router;

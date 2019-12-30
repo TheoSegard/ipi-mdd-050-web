@@ -40,6 +40,7 @@
     "ember-lodash": "^4.18.0",
     "ember-math-helpers": "^2.4.0",
     "ember-resolver": "^4.0.0",
+    "ember-simple-auth": "^2.1.1",
     "ember-source": "~2.16.0",
     "ember-toastr": "^1.7.0",
     "ember-truth-helpers": "^2.0.0",

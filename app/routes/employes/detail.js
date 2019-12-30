@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Route.extend({
+export default Route.extend(AuthenticatedRouteMixin, {
   model(params){
     if(params.employeId === "newC"){
       return this.store.createRecord("commercial", {
@@ -28,9 +29,13 @@ export default Route.extend({
     }
   },
   actions: {
+    willTransition(){
+      if(this.controller.get("model.hasDirtyAttributes")){
+        this.controller.get("model").rollbackAttributes();
+      }
+    },
     error(error, transition) {
-      console.log(transition);
-      if(error.message){
+      if(error && error.message){
         this.toast.error("Erreur HTTP '" + error.status + "', " + error.message);
       }
     }

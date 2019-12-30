@@ -20,7 +20,15 @@
           {{input value=matricule classNames="form-control" placeholder="Rechercher par matricule" type="text"}}
         </div>
         <button type="submit" class="btn btn-default" {{action "rechercher"}}>Rechercher</button>
+        <div class="form-group">
+          {{#if session.isAuthenticated}}
+            <button class="btn btn-warning" {{action "invalidateSession"}}>Se déconnecter</button>
+          {{else}}
+            {{#link-to 'login' class="btn btn-info"}}Se connecter{{/link-to}}
+          {{/if}}
+        </div>
       </form>
+
     </div>
   </div>
 </nav>

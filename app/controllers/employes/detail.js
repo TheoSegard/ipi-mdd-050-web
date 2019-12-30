@@ -11,7 +11,7 @@ export default Controller.extend({
         this.toast.success(isNew ? 'Insertion effectuée !' : 'Modification effectuée !');
         this.transitionToRoute("employes.detail", this.get("model.id"));
       }).catch((error) => {
-        if(error.errors){
+        if(error && error.errors){
           error.errors.forEach((er) => {
             this.toast.error("Erreur " + er.status + " lors de la sauvegarde, " + er.detail);
           })
@@ -24,10 +24,10 @@ export default Controller.extend({
         this.toast.success('Suppression effectuée !');
         this.transitionToRoute("employes.liste");
       }).catch((reason) => {
-        if(reason.payload){
+        if(reason && reason.payload){
           this.toast.error(error.payload);
         }
-        else if(reason.errors){
+        else if(reason && reason.errors){
           reason.errors.forEach((er) => {
             this.toast.error("Erreur " + er.status + " lors de la suppression, " + er.detail);
           })
@@ -40,7 +40,7 @@ export default Controller.extend({
         this.get("model.equipe").removeObject(tech);
         this.toast.success("Suppression du technicien de l'équipe effectuée !");
       }).catch((error) => {
-        if(error.payload){
+        if(error && error.payload){
           this.toast.error(error.payload);
         }
       });
@@ -53,7 +53,7 @@ export default Controller.extend({
         });
         this.set("matriculeToAdd", null);
       }).catch((error) => {
-        if(error.payload){
+        if(error && error.payload){
           this.toast.error(error.payload);
         }
       });
@@ -63,7 +63,7 @@ export default Controller.extend({
       this.get("model").save().then(() => {
         this.toast.success("Suppression du manager effectuée !");
       }).catch((error) => {
-        if(error.payload){
+        if(error && error.payload){
           this.toast.error(error.payload);
         }
       });
@@ -76,7 +76,7 @@ export default Controller.extend({
         });
         this.set("matriculeToAdd", null);
       }).catch((error) => {
-        if(error.payload){
+        if(error && error.payload){
           this.toast.error(error.payload);
         }
       });
